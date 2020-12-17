@@ -19,6 +19,9 @@ class SingleProductStoreTest extends TestCase
         $response = $this->get(route('product.index'));
 
         $response->assertOk()
-            ->assertSee($product);
+            ->assertViewIs('product')
+            ->assertSee($product->name)
+            ->assertSee($product->price)
+            ->assertSee($product->image);
     }
 }
