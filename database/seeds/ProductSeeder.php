@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
     {
         DB::table('products')->insert([
             'id' => 1,
-            'name' => 'Diego',
+            'name' => 'Logitec G502',
             'price' => '250000',
             'image' => 'https://http2.mlstatic.com/D_NQ_NP_800755-MCO42106648061_062020-O.webp'
         ]);
