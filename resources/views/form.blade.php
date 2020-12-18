@@ -117,7 +117,7 @@
                         <label for="document_type">Document Type</label>
                         <select name="document-type" class="form-control" id="document-type" required>
                             <option value="" selected>...</option>
-                            <option value="CC">Cedula de Ciudadania</option>
+                            <option value="CC">C.C</option>
                         </select>
                     </div>
 
