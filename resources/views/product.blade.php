@@ -70,7 +70,7 @@
     <body>
     @section('content')
         <div class="flex-center position-ref">
-                <form method="POST" action="{{ route('form.index') }}">
+                <form method="POST" action="{{ route('form.index', $product) }}">
                     @csrf
                     <div class="content">
                         <div class="row text-center">
@@ -84,9 +84,6 @@
                                         <ul class="list-unstyled mt-3 mb-4">
                                             <li><h3>$ {{ $product->price }} COP</h3></li>
                                         </ul>
-                                        <input type="hidden" name="id" value="{{ $product->id }}">
-                                        <input type="hidden" name="name" value="{{ $product->name }}">
-                                        <input type="hidden" name="price" value="{{ $product->price }}">
                                         <button type="submit" class="w-100 btn btn-lg btn-primary">BUY</button>
                                     </div>
                                 </div>
