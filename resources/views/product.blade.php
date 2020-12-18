@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,6 +9,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -64,37 +68,30 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+    @section('content')
+        <div class="flex-center position-ref">
+                <form method="POST" action="{{ route('form.index', $product) }}">
+                    @csrf
+                    <div class="content">
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-header">
+                                        <h4 class="my-0 fw-normal">{{ $product->name }}</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="{{ $product->image }}" alt="mouse-image" width="300" height="300">
+                                        <ul class="list-unstyled mt-3 mb-4">
+                                            <li><h3>$ {{ $product->price }} COP</h3></li>
+                                        </ul>
+                                        <button type="submit" class="w-100 btn btn-lg btn-primary">BUY</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
         </div>
+    @endsection
     </body>
 </html>

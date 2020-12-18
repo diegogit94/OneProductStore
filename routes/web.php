@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::view('/', 'auth.login');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/product', 'ProductController@index')->name('product.index');
+Route::post('/form/{product}', 'FormController@index')
+    ->name('form.index')
+    ->middleware('auth');
+
