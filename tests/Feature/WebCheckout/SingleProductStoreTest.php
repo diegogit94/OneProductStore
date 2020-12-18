@@ -34,7 +34,7 @@ class SingleProductStoreTest extends TestCase
         $user = factory(User::class)->create();
 
         $response = $this->actingAs($user)->post(route('form.index', $product));
-        
+
         $response->assertOk()
             ->assertViewIs('form')
             ->assertViewHas(['product']);
