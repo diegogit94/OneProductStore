@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -67,40 +68,33 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="row text-center">
-                    <div class="col">
-                        <div class="card mb-4 shadow-sm">
-                            <div class="card-header">
-                                <h4 class="my-0 fw-normal">{{ $product->name }}</h4>
-                            </div>
-                            <div class="card-body">
-{{--                                <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>--}}
-                                <img src="{{ $product->image }}" alt="mouse-image" width="300" height="300">
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <li><h3>$ {{ $product->price }} COP</h3></li>
-                                </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-primary">BUY</button>
+    @section('content')
+        <div class="flex-center position-ref">
+                <form method="POST" action="{{ route('form.index') }}">
+                    @csrf
+                    <div class="content">
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-header">
+                                        <h4 class="my-0 fw-normal">{{ $product->name }}</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="{{ $product->image }}" alt="mouse-image" width="300" height="300">
+                                        <ul class="list-unstyled mt-3 mb-4">
+                                            <li><h3>$ {{ $product->price }} COP</h3></li>
+                                        </ul>
+                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                        <input type="hidden" name="name" value="{{ $product->name }}">
+                                        <input type="hidden" name="price" value="{{ $product->price }}">
+                                        <button type="submit" class="w-100 btn btn-lg btn-primary">BUY</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </form>
         </div>
+    @endsection
     </body>
 </html>
