@@ -80,7 +80,7 @@
 
                     <div class="col-md-6">
                         <label for="surname" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="surname">
+                        <input type="text" class="form-control" id="surname" value="{{ auth()->user()->surname }}">
                     </div>
 
                     <div class="col-md-6">
@@ -90,44 +90,46 @@
 
                     <div class="col-md-6">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address">
+                        <input type="text" class="form-control" id="address" value="{{ auth()->user()->address }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city">
+                        <input type="text" class="form-control" id="city" value="{{ auth()->user()->city }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="province" class="form-label">Province</label>
-                        <input type="text" class="form-control" id="province">
+                        <input type="text" class="form-control" id="province" value="{{ auth()->user()->province }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="postal-code" class="form-label">Postal Code</label>
-                        <input type="text" class="form-control" id="postal-code">
+                        <input type="text" class="form-control" id="postal-code" value="{{ auth()->user()->postal_code }}">
                     </div>
 
                     <div class="col-md-6">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="tel" class="form-control" id="phone">
+                        <label for="mobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="mobile" value="{{ auth()->user()->mobile }}">
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="document_type">Document Type</label>
-                        <select name="document-type" class="form-control" id="document-type" required>
+                        <label for="document-type">Document Type</label>
+                        <select  name="document-type" class="form-control" id="document-type" required>
+                            @if( auth()->user()->document_type === 'CC')
+                                <option value="">...</option>
+                                <option value="CC" selected>C.C</option>
+                            @else
                             <option value="" selected>...</option>
-                            <option value="CC">C.C</option>
+                            <option value="{{ old(auth()->user()->document_type, 'document-type') }}" >C.C</option>
+                            @endif
                         </select>
                     </div>
 
                     <div class="col-md-6">
                         <label for="document-number" class="form-label">Document number</label>
-                        <input type="text" class="form-control" id="document-number">
+                        <input type="text" class="form-control" id="document-number" value="{{ auth()->user()->document }}">
                     </div>
-
-                    <input type="hidden" name="name" value="{{ $product->name }}">
-                    <input type="hidden" name="price" value="{{ $product->price }}">
 
                     <div class="col-12">
                         <button type="submit" class="w-100 btn btn-primary">Pay</button>
