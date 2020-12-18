@@ -126,6 +126,9 @@
                         <input type="text" class="form-control" id="document-number">
                     </div>
 
+                    <input type="hidden" name="name" value="{{ $product->name }}">
+                    <input type="hidden" name="price" value="{{ $product->price }}">
+
                     <div class="col-12">
                         <button type="submit" class="w-100 btn btn-primary">Pay</button>
                     </div>
