@@ -20,5 +20,7 @@ Route::view('/', 'auth.login');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/product', 'ProductController@index')->name('product.index');
-Route::post('/form', 'FormController@index')->name('form.index')->middleware('auth');
+Route::post('/form/{product}', 'FormController@index')
+    ->name('form.index')
+    ->middleware('auth');
 
