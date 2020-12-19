@@ -14,6 +14,17 @@ class PurchaseController extends Controller
 
         $order = Order::where('reference', $reference)->get();
 
-        return $connection->getRequestInformation($order[0]['request_id']);
+        $requestInformation =  $connection->getRequestInformation($order[0]['request_id']);
+
+        $order->toQuery()->update([
+            'status' => $requestInformation['status']['status']
+        ]);
+
+        /*
+         * In a form show Status, Reference and total
+         *
+         * */
+
+        return view('purchaseResult', compact('requestInformation'));
     }
 }
