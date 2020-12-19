@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Http;
  */
 class PlaceToPayConnection
 {
-    public $response;
-    public $auth;
     public $reference;
 
     /**
@@ -55,7 +53,7 @@ class PlaceToPayConnection
     {
         $this->reference = uniqid();
 
-        $this->response = Http::post(env('P2P_ENDPOINT'), [
+        $response = Http::post(env('P2P_ENDPOINT'), [
             'auth' => $this->authentication(),
             'payment' => [
                 'reference' => $this->reference,
@@ -81,7 +79,7 @@ class PlaceToPayConnection
             'userAgent' => request()->server('HTTP_USER_AGENT')
         ]);
 
-        return $this->response->json();
+        return $response->json();
     }
 
     /**
