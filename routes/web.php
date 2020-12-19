@@ -27,5 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/form/{product}', 'FormController@index')
         ->name('form.index');
 
+    Route::post('/form{product}', 'FormController@pay')
+        ->name('form.pay');
+
+    Route::get('/result{reference}', 'PurchaseController@index')->name('purchase.index');
 });
+
 
