@@ -71,46 +71,47 @@
 @section('content')
     <div class="flex-center position-ref">
             <div class="container col-5 p-2 bg-light border">
-                <form method="POST" action="#" class="row g-3">
+                <form method="POST" action="{{ route('form.pay', $product) }}" class="row g-3">
+                    @csrf
                     <h2>Billing Details</h2>
                     <div class="col-md-6">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" value="{{ auth()->user()->name }}">
+                        <input name="name" type="text" class="form-control" id="name" value="{{ auth()->user()->name }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="surname" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="surname" value="{{ auth()->user()->surname }}">
+                        <input name="surname" type="text" class="form-control" id="surname" value="{{ auth()->user()->surname }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" value="{{ auth()->user()->email }}">
+                        <input name="email" type="email" class="form-control" id="email" value="{{ auth()->user()->email }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" value="{{ auth()->user()->address }}">
+                        <input name="address" type="text" class="form-control" id="address" value="{{ auth()->user()->address }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="city" class="form-label">City</label>
-                        <input type="text" class="form-control" id="city" value="{{ auth()->user()->city }}">
+                        <input name="city" type="text" class="form-control" id="city" value="{{ auth()->user()->city }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="province" class="form-label">Province</label>
-                        <input type="text" class="form-control" id="province" value="{{ auth()->user()->province }}">
+                        <input name="province" type="text" class="form-control" id="province" value="{{ auth()->user()->province }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="postal-code" class="form-label">Postal Code</label>
-                        <input type="text" class="form-control" id="postal-code" value="{{ auth()->user()->postal_code }}">
+                        <input name="postal-code" type="text" class="form-control" id="postal-code" value="{{ auth()->user()->postal_code }}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="mobile" class="form-label">Mobile</label>
-                        <input type="tel" class="form-control" id="mobile" value="{{ auth()->user()->mobile }}">
+                        <input name="mobile" type="tel" class="form-control" id="mobile" value="{{ auth()->user()->mobile }}">
                     </div>
 
                     <div class="form-group col-md-6">
@@ -128,11 +129,14 @@
 
                     <div class="col-md-6">
                         <label for="document-number" class="form-label">Document number</label>
-                        <input type="text" class="form-control" id="document-number" value="{{ auth()->user()->document }}">
+                        <input name="document-number" type="text" class="form-control" id="document-number" value="{{ auth()->user()->document }}">
                     </div>
 
                     <div class="col-12">
                         <button type="submit" class="w-100 btn btn-primary">Pay</button>
+                    </div>
+                    <div class="col-3">
+                        <img src="https://static.placetopay.com/placetopay-logo.svg" class="attachment-0x0 size-0x0" alt="" loading="lazy">
                     </div>
                 </form>
             </div>
