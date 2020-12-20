@@ -20,11 +20,6 @@ class PurchaseController extends Controller
             'status' => $requestInformation['status']['status']
         ]);
 
-        /*
-         * In a form show Status, Reference and total
-         *
-         * */
-
         return view('purchaseResult', compact('requestInformation'));
     }
 }
