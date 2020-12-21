@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>OPS</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -70,8 +70,7 @@
     <body>
     @section('content')
         <div class="flex-center position-ref">
-                <form method="POST" action="{{ route('form.index', $product) }}">
-                    @csrf
+                <form method="GET" action="{{ route('form.index', $product) }}">
                     <div class="content">
                         <div class="row text-center">
                             <div class="col">
@@ -82,7 +81,7 @@
                                     <div class="card-body">
                                         <img src="{{ $product->image }}" alt="mouse-image" width="300" height="300">
                                         <ul class="list-unstyled mt-3 mb-4">
-                                            <li><h3>$ {{ $product->price }} COP</h3></li>
+                                            <li><h3>{{ formatPrice($product->price) }} COP</h3></li>
                                         </ul>
                                         <button type="submit" class="w-100 btn btn-lg btn-primary">BUY</button>
                                     </div>

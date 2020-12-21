@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b46a02dd-04ee-4b98-bfc2-d9afd3aba872" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/WebCheckout/SingleProductStoreTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/WebCheckout/SingleProductStoreTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +156,12 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/Helpers" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -175,7 +182,9 @@
       <workItem from="1608231561984" duration="180000" />
       <workItem from="1608231755956" duration="438000" />
       <workItem from="1608232277628" duration="30979000" />
-      <workItem from="1608313005028" duration="6110000" />
+      <workItem from="1608313005028" duration="20632000" />
+      <workItem from="1608405867001" duration="16222000" />
+      <workItem from="1608494195064" duration="9521000" />
     </task>
     <servers />
   </component>

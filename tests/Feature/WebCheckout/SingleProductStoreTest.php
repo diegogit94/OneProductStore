@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\WebCheckout;
 
+use App\PlaceToPay\PlaceToPayConnection;
 use App\Product;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -21,9 +22,7 @@ class SingleProductStoreTest extends TestCase
 
         $response->assertOk()
             ->assertViewIs('product')
-            ->assertSee($product->name)
-            ->assertSee($product->price)
-            ->assertSee($product->image);
+            ->assertViewHas(['product']);
     }
 
     /** @test */
@@ -33,10 +32,9 @@ class SingleProductStoreTest extends TestCase
 
         $user = factory(User::class)->create();
 
-        $response = $this->actingAs($user)->post(route('form.index', $product));
+        $response = $this->actingAs($user)->get(route('form.index', $product));
 
-        $response->assertOk()
-            ->assertViewIs('form')
+        $response->assertViewIs('form')
             ->assertViewHas(['product']);
     }
 
@@ -45,7 +43,7 @@ class SingleProductStoreTest extends TestCase
     {
         $product = factory(Product::class)->create();
 
-        $response = $this->post(route('form.index', $product));
+        $response = $this->get(route('form.index', $product));
 
         $response->assertRedirect('/login')
             ->assertDontSee('product');

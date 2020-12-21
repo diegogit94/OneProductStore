@@ -25,14 +25,15 @@ class PaymentRequest extends FormRequest
     {
         return [
             'name' => 'required|min:2|max:50',
-            'last_name' => 'required|min:2|max:50',
+            'surname' => 'required|min:2|max:50',
+            'email' => 'required|exists:users',
             'address' => 'required|min:6|max:50',
             'city' => 'required|min:6|max:40',
             'province' => 'required|min:6|max:40',
-            'postal_code' => 'required|numeric',
-            'phone' => 'required|numeric',
-            'document_type' => 'required|in:cc',
-            'document_number' => 'required|numeric'
+            'postal-code' => 'required|numeric',
+            'mobile' => 'required|numeric',
+            'document-type' => 'required|in:C.C',
+            'document-number' => 'required|numeric'
         ];
     }
 }
